@@ -26,6 +26,20 @@ public class ArrayDemo{
     return x;
   }
 
+  public static void fill2D(int[][] vals){
+    for (int r = 0; r < vals.length; r++) {
+      for (int c = 0; c < vals[r].length; c++) {
+        if (r == c) {
+          vals[r][c] = 3;
+        }
+        else {
+          vals[r][c] = 1;
+        }
+      }
+    }
+    printArray(vals);
+  }
+
   public static void main (String [] args) {
     int[] testA = {1, 2, 3, 4};
     int [] [] testB = new int [] [] { {0,1,0,1}, {1,0,1,0} };
@@ -33,5 +47,7 @@ public class ArrayDemo{
     System.out.println();
     printArray(testB);
     System.out.print (countZeros2D(testB));
+    System.out.println();
+    fill2D(testB);
   }
 }
