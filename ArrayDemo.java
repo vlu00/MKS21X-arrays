@@ -43,6 +43,7 @@ public class ArrayDemo{
   public static int[][] fill2DCopy(int[][] vals){
     int [] [] copy = new int [vals.length] [];
     for (int r = 0; r < vals.length; r++) {
+      copy[r] = new int [vals[r].length];
       for (int c = 0; c < vals[r].length; c++) {
         if (vals[r][c] < 0) {
           copy[r][c] = 3;
@@ -52,17 +53,20 @@ public class ArrayDemo{
         }
       }
     }
+    return copy;
   }
 
   public static void main (String [] args) {
     int[] testA = {1, 2, 3, 4};
-    int [] [] testB = new int [] [] { {0,1,0,-1}, {1,0,-1,0} };
+    int [] [] testB = new int [] [] { {0,1,0,1}, {1,0,1,0} };
+    int [] [] testC = new int [] [] { {0,-1,0,-2}, {-3,0,1,0} };
     printArray(testA);
     System.out.println();
     printArray(testB);
     System.out.print (countZeros2D(testB));
     System.out.println();
     fill2D(testB);
-    fill2DCopy(testB);
+    System.out.println();
+    printArray(fill2DCopy(testC));
   }
 }
